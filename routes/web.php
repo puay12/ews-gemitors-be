@@ -37,5 +37,6 @@ Route::prefix('patients')->group(function () {
     });
     Route::prefix('score')->controller(EWSScoreController::class)->group(function () {
         Route::get('/detail/{id}', 'showByRecordId')->name('show-ews-score-detail');
+        Route::post('/add', 'store')->name('add-ews-score');
     });
 });

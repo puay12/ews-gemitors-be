@@ -14,10 +14,11 @@ class HealthRecordsController extends Controller
     {
         $validatedData = $this->validateData($request);
 
-        HealthRecords::create($validatedData);
+        $data = HealthRecords::create($validatedData);
 
         return response()->json([
-            'message' => 'Berhasil menambahkan tanda vital pasien!'
+            'message' => 'Berhasil menambahkan tanda vital pasien!',
+            'record_id' => $data->id
         ]);
     }
 
@@ -54,7 +55,6 @@ class HealthRecordsController extends Controller
         
         return response()->json([
             'message' => 'Berhasil mengupdate data tanda vital pasien!',
-            'record_id' => $data->id
         ]); 
     }
 

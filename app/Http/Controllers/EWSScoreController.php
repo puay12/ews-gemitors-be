@@ -22,7 +22,7 @@ class EWSScoreController extends Controller
         $record = EWSScore::find($id);
         if (empty($record)) {
             return response()->json([
-                'message' => 'Skor EWS tidak ditemukan.'
+                'message' => 'Gagal mendapatkan hasil skor EWS pasien dari tanda vital tersebut!'
             ], 404);
         } else {
             return response()->json($record);
