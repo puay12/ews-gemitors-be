@@ -3,6 +3,7 @@
 use App\Http\Controllers\EWSScoreController;
 use App\Http\Controllers\HealthRecordsController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ProtocolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,5 +39,11 @@ Route::prefix('patients')->group(function () {
     Route::prefix('score')->controller(EWSScoreController::class)->group(function () {
         Route::get('/detail/{id}', 'show')->name('show-ews-score-detail');
         Route::post('/add', 'store')->name('add-ews-score');
+    });
+});
+
+Route::prefix('protocol')->group(function () {
+    Route::controller(ProtocolController::class)->group(function () {
+        Route::get('/all', 'index')->name('all-protocols');
     });
 });
