@@ -36,7 +36,7 @@ Route::prefix('patients')->group(function () {
         Route::delete('/delete/{id}', 'destroy')->name('delete-record');
     });
     Route::prefix('score')->controller(EWSScoreController::class)->group(function () {
-        Route::get('/detail/{id}', 'showByRecordId')->name('show-ews-score-detail');
+        Route::get('/detail/{id}', 'show')->name('show-ews-score-detail');
         Route::post('/add', 'store')->name('add-ews-score');
     });
 });

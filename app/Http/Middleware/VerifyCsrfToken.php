@@ -15,5 +15,6 @@ class VerifyCsrfToken extends Middleware
         'patients/vsign/add',
         'patients/vsign/update/12',
         'patients/vsign/delete/14',
+        'patients/score/add'
     ];
 }

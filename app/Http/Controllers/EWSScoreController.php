@@ -19,17 +19,6 @@ class EWSScoreController extends Controller
     }
 
     public function show($id){
-        $record = EWSScore::find($id);
-        if (empty($record)) {
-            return response()->json([
-                'message' => 'Gagal mendapatkan hasil skor EWS pasien dari tanda vital tersebut!'
-            ], 404);
-        } else {
-            return response()->json($record);
-        }
-    }
-
-    public function showByRecordId($id){
         $result = EWSScore::where('record_id', $id)->get();
         if (empty($result)) {
             return response()->json([
