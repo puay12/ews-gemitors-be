@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EWSScore;
 use App\Models\HealthRecords;
 use App\Models\Patient;
 use Illuminate\Http\Request;
@@ -63,7 +64,9 @@ class HealthRecordsController extends Controller
      */
     public function destroy($id)
     {
+        EWSScore::where('record_id', $id)->delete();
         HealthRecords::destroy($id);
+        
         return response()->json([
             'message' => 'Berhasil menghapus tanda vital pasien!'
         ]);

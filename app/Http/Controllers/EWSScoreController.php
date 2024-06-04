@@ -29,30 +29,20 @@ class EWSScoreController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
+    public function destroy($id)
     {
-        $validatedData = $this->validateData($request);
-
-        EWSScore::where('id', $id)->update($validatedData);
+        $result = EWSScore::where('record_id',$id)->delete();
         
-        return response()->json([
-            'message' => 'Berhasil mengupdate skor  EWS tanda vital tersebut!'
-        ]); 
+        if ($result) {
+            return response()->json([
+                'message' => 'Berhasil menghapus skor EWS dari tanda vital tersebut!'
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Gagal menghapus skor EWS dari tanda vital tersebut!'
+            ], 400);
+        }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    // public function destroy($id)
-    // {
-    //     EWSScore::destroy($id);
-    //     return response()->json([
-    //         'message' => 'Berhasil menghapus skor EWS tanda vital tersebut!'
-    //     ]);
-    // }
 
     private function validateData($request){
         $data = $request->validate([

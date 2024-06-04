@@ -10,11 +10,12 @@ class VerifyCsrfToken extends Middleware
 
     protected $except = [
         'patients/add',
-        'patients/update/14',
-        'patients/delete/12',
+        'patients/update/43',
+        'patients/delete/34',
         'patients/vsign/add',
-        'patients/vsign/update/12',
-        'patients/vsign/delete/14',
-        'patients/score/add'
+        'patients/vsign/update/48',
+        'patients/vsign/delete/46',
+        'patients/score/add',
+        'patients/score/delete/48'
     ];
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HealthRecords;
 use App\Models\Patient;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
