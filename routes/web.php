@@ -46,5 +46,7 @@ Route::prefix('patients')->group(function () {
 Route::prefix('protocol')->group(function () {
     Route::controller(ProtocolController::class)->group(function () {
         Route::get('/all', 'index')->name('all-protocols');
+        Route::get('/{id}', 'show')->name('get-protocol-by-id');
+        Route::post('/get-recommendation/{score}', 'getRecommendation')->name('get-recommendation');
     });
 });
