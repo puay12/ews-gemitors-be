@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\EWSScore;
 use App\Models\HealthRecords;
-use App\Models\Patient;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
 
 class HealthRecordsController extends Controller
 {

@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Protocol;
-use App\Http\Requests\StoreProtocolRequest;
-use App\Http\Requests\UpdateProtocolRequest;
 use App\Models\ScoreThreshold;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
