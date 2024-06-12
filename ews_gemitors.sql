@@ -18,13 +18,13 @@
 CREATE TABLE IF NOT EXISTS `ews_score` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `record_id` int unsigned NOT NULL,
-  `heart_score` varchar(50) NOT NULL,
-  `sys_score` varchar(50) NOT NULL,
-  `dias_score` varchar(50) NOT NULL,
-  `respiratory_score` varchar(50) NOT NULL,
-  `temp_score` varchar(50) NOT NULL,
-  `spo2_score` varchar(50) NOT NULL,
-  `ews_score` varchar(50) NOT NULL,
+  `heart_score` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sys_score` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dias_score` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `respiratory_score` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `temp_score` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `spo2_score` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ews_score` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -53,14 +53,14 @@ REPLACE INTO `ews_score` (`id`, `record_id`, `heart_score`, `sys_score`, `dias_s
 -- Dumping structure for table ews_gemitors.ews_table
 CREATE TABLE IF NOT EXISTS `ews_table` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `vital_sign` varchar(50) NOT NULL DEFAULT '0',
-  `3L` varchar(50) NOT NULL DEFAULT '0',
-  `2L` varchar(50) NOT NULL DEFAULT '0',
-  `1L` varchar(50) NOT NULL DEFAULT '0',
-  `0` varchar(50) NOT NULL DEFAULT '0',
-  `1R` varchar(50) NOT NULL DEFAULT '0',
-  `2R` varchar(50) NOT NULL DEFAULT '0',
-  `3R` varchar(50) NOT NULL DEFAULT '0',
+  `vital_sign` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `3L` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `2L` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `1L` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `0` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `1R` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `2R` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `3R` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -70,12 +70,12 @@ CREATE TABLE IF NOT EXISTS `ews_table` (
 CREATE TABLE IF NOT EXISTS `health_records` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `patient_id` int unsigned NOT NULL,
-  `heart_rate` varchar(50) NOT NULL DEFAULT '0',
-  `systolic_blood_pressure` varchar(50) NOT NULL DEFAULT '0',
-  `diastolic_blood_pressure` varchar(50) NOT NULL DEFAULT '0',
-  `respiratory_rate` varchar(50) NOT NULL DEFAULT '0',
-  `temperature` varchar(50) NOT NULL DEFAULT '0',
-  `spo2` varchar(50) NOT NULL DEFAULT '0',
+  `heart_rate` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `systolic_blood_pressure` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `diastolic_blood_pressure` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `respiratory_rate` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `temperature` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `spo2` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -104,7 +104,7 @@ REPLACE INTO `health_records` (`id`, `patient_id`, `heart_rate`, `systolic_blood
 -- Dumping structure for table ews_gemitors.monitoring_frequency
 CREATE TABLE IF NOT EXISTS `monitoring_frequency` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `frequency` varchar(255) NOT NULL,
+  `frequency` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -118,12 +118,12 @@ REPLACE INTO `monitoring_frequency` (`id`, `frequency`) VALUES
 -- Dumping structure for table ews_gemitors.patient
 CREATE TABLE IF NOT EXISTS `patient` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `gender` char(50) NOT NULL DEFAULT '',
-  `age` varchar(50) NOT NULL DEFAULT '',
-  `height` varchar(50) NOT NULL DEFAULT '',
-  `weight` varchar(50) NOT NULL DEFAULT '',
-  `phone` varchar(50) NOT NULL DEFAULT '',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `age` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `height` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `weight` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `phone` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `protocols` (
   `risk_level_id` int unsigned NOT NULL,
   `category_id` int unsigned NOT NULL,
   `monitor_freq_id` int unsigned NOT NULL,
-  `protocol_list` text NOT NULL,
+  `protocol_list` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_score_thres_id` (`score_thres_id`),
   KEY `fk_risk_level_id` (`risk_level_id`),
@@ -179,7 +179,7 @@ REPLACE INTO `protocols` (`id`, `score_thres_id`, `risk_level_id`, `category_id`
 -- Dumping structure for table ews_gemitors.protocol_categories
 CREATE TABLE IF NOT EXISTS `protocol_categories` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -193,7 +193,7 @@ REPLACE INTO `protocol_categories` (`id`, `category`) VALUES
 -- Dumping structure for table ews_gemitors.risk_levels
 CREATE TABLE IF NOT EXISTS `risk_levels` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `level` varchar(255) NOT NULL,
+  `level` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -207,7 +207,7 @@ REPLACE INTO `risk_levels` (`id`, `level`) VALUES
 -- Dumping structure for table ews_gemitors.roles
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -221,7 +221,7 @@ REPLACE INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- Dumping structure for table ews_gemitors.score_threshold
 CREATE TABLE IF NOT EXISTS `score_threshold` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `threshold` varchar(255) NOT NULL DEFAULT '',
+  `threshold` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -236,8 +236,8 @@ REPLACE INTO `score_threshold` (`id`, `threshold`) VALUES
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `role_id` int unsigned NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `logged_in` int NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
