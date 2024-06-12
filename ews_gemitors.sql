@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `ews_score` (
   PRIMARY KEY (`id`),
   KEY `fk_record_id` (`record_id`),
   CONSTRAINT `fk_record_id` FOREIGN KEY (`record_id`) REFERENCES `health_records` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.ews_score: ~16 rows (approximately)
 REPLACE INTO `ews_score` (`id`, `record_id`, `heart_score`, `sys_score`, `dias_score`, `respiratory_score`, `temp_score`, `spo2_score`, `ews_score`, `created_at`, `updated_at`) VALUES
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `ews_table` (
   `2R` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `3R` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.ews_table: ~0 rows (approximately)
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `health_records` (
   PRIMARY KEY (`id`),
   KEY `fk_patient_id` (`patient_id`),
   CONSTRAINT `fk_patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.health_records: ~14 rows (approximately)
 REPLACE INTO `health_records` (`id`, `patient_id`, `heart_rate`, `systolic_blood_pressure`, `diastolic_blood_pressure`, `respiratory_rate`, `temperature`, `spo2`, `created_at`, `updated_at`) VALUES
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `monitoring_frequency` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `frequency` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.monitoring_frequency: ~4 rows (approximately)
 REPLACE INTO `monitoring_frequency` (`id`, `frequency`) VALUES
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.patient: ~14 rows (approximately)
 REPLACE INTO `patient` (`id`, `name`, `gender`, `age`, `height`, `weight`, `phone`, `created_at`, `updated_at`) VALUES
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `protocols` (
   CONSTRAINT `fk_monitor_freq_id` FOREIGN KEY (`monitor_freq_id`) REFERENCES `monitoring_frequency` (`id`),
   CONSTRAINT `fk_risk_level_id` FOREIGN KEY (`risk_level_id`) REFERENCES `risk_levels` (`id`),
   CONSTRAINT `fk_score_thres_id` FOREIGN KEY (`score_thres_id`) REFERENCES `score_threshold` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.protocols: ~4 rows (approximately)
 REPLACE INTO `protocols` (`id`, `score_thres_id`, `risk_level_id`, `category_id`, `monitor_freq_id`, `protocol_list`) VALUES
@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `protocol_categories` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `category` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.protocol_categories: ~4 rows (approximately)
 REPLACE INTO `protocol_categories` (`id`, `category`) VALUES
@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `risk_levels` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `level` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.risk_levels: ~4 rows (approximately)
 REPLACE INTO `risk_levels` (`id`, `level`) VALUES
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.roles: ~2 rows (approximately)
 REPLACE INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `score_threshold` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `threshold` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.score_threshold: ~4 rows (approximately)
 REPLACE INTO `score_threshold` (`id`, `threshold`) VALUES
@@ -244,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   KEY `fk_role_id` (`role_id`),
   CONSTRAINT `fk_role_id` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table ews_gemitors.user: ~0 rows (approximately)
 REPLACE INTO `user` (`id`, `role_id`, `email`, `password`, `logged_in`, `created_at`, `updated_at`) VALUES
